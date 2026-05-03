@@ -81,18 +81,23 @@
     margin: 0 auto;
   }
   .logo {
-    font-weight: 800;
-    font-size: 17px;
-    letter-spacing: -0.02em;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .logo-img {
+    height: 22px;
+    width: auto;
+    display: block;
   }
   .logo-dot {
-    width: 7px; height: 7px;
+    width: 6px; height: 6px;
     background: var(--accent);
     border-radius: 50%;
     box-shadow: 0 0 12px var(--accent-glow);
+    flex-shrink: 0;
   }
   .nav-links {
     display: flex;
@@ -125,6 +130,52 @@
     padding: 96px 0 80px;
     text-align: center;
     position: relative;
+  }
+  .hero-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 56px;
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .hero-logo {
+    flex-shrink: 0;
+    position: relative;
+  }
+  .hero-logo::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(circle, var(--accent-glow), transparent 60%);
+    opacity: 0.5;
+    z-index: -1;
+    filter: blur(20px);
+  }
+  .hero-logo img {
+    width: 240px;
+    height: auto;
+    display: block;
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .hero-content {
+    flex: 1;
+    min-width: 0;
+  }
+  @media (max-width: 880px) {
+    .hero-main {
+      flex-direction: column;
+      gap: 32px;
+      text-align: center;
+    }
+    .hero-logo img { width: 180px; }
+    .hero-cta { justify-content: center; }
+    .hero p.lead { margin-left: auto; margin-right: auto; }
   }
   .badge {
     display: inline-flex;
@@ -174,16 +225,15 @@
   .hero p.lead {
     font-size: clamp(15px, 1.8vw, 18px);
     color: var(--text-dim);
-    max-width: 580px;
-    margin: 0 auto 40px;
+    max-width: 540px;
+    margin-bottom: 32px;
     line-height: 1.65;
   }
   .hero-cta {
     display: flex;
     gap: 12px;
-    justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 64px;
+    margin-top: 8px;
   }
   .btn {
     display: inline-flex;
@@ -223,7 +273,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     max-width: 720px;
-    margin: 0 auto;
+    margin: 64px auto 0;
     padding: 32px 0;
     border-top: 1px solid var(--border-soft);
     border-bottom: 1px solid var(--border-soft);
@@ -659,10 +709,10 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">
+    <a href="#" class="logo" aria-label="THE FIELD 홈">
       <span class="logo-dot"></span>
-      THE FIELD
-    </div>
+      <img src="logo_text.png" alt="THE FIELD" class="logo-img">
+    </a>
     <div class="nav-links">
       <a href="#features">기능</a>
       <a href="#how">도입 절차</a>
@@ -673,20 +723,27 @@
 </nav>
 
 <header class="hero container">
-  <div class="badge">KU리그 · 고려대학교 야구부 도입</div>
-  <h1>
-    기록은 디지털로,<br>
-    <span class="accent">분석은 AI로</span>
-  </h1>
-  <p class="lead">
-    아날로그 기록지를 태블릿으로 옮기고,<br>
-    AI가 경기 중에도 경기 후에도 함께 분석합니다.
-  </p>
-  <div class="hero-cta">
-    <a href="https://forms.gle/r2zn2qhrxPXjtUnGA" target="_blank" rel="noopener" class="btn btn-primary">
-      30일 무료 체험 신청
-    </a>
-    <a href="#features" class="btn btn-ghost">기능 둘러보기</a>
+  <div class="hero-main">
+    <div class="hero-logo">
+      <img src="logo_full.png" alt="THE FIELD 로고">
+    </div>
+    <div class="hero-content">
+      <div class="badge">KU리그 · 고려대학교 야구부 도입</div>
+      <h1>
+        기록은 디지털로,<br>
+        <span class="accent">분석은 AI로</span>
+      </h1>
+      <p class="lead">
+        아날로그 기록지를 태블릿으로 옮기고,<br>
+        AI가 경기 중에도 경기 후에도 함께 분석합니다.
+      </p>
+      <div class="hero-cta">
+        <a href="https://forms.gle/r2zn2qhrxPXjtUnGA" target="_blank" rel="noopener" class="btn btn-primary">
+          30일 무료 체험 신청
+        </a>
+        <a href="#features" class="btn btn-ghost">기능 둘러보기</a>
+      </div>
+    </div>
   </div>
   <div class="hero-stats">
     <div class="stat">
