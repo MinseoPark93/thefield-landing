@@ -4,73 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>계정 및 데이터 삭제 요청 · 더필드(THE FIELD)</title>
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<meta name="description" content="더필드(THE FIELD) 계정 및 데이터 삭제 요청">
+<meta name="theme-color" content="#F6F4EF">
+<link rel="icon" href="logo_full.png">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="legal.css">
 <style>
-  :root{
-    --bg:#1C1E26; --surface:#272A35; --border:#363A45;
-    --green:#1DB954; --blue:#378ADD;
-    --text:#E8EAED; --muted:#9AA0AB;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:var(--bg);color:var(--text);
-    font-family:"Pretendard",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
-    line-height:1.75;-webkit-font-smoothing:antialiased;padding:0 20px;
-  }
-  .wrap{max-width:680px;margin:0 auto;padding:56px 0 80px}
-  .brand{display:flex;align-items:center;gap:10px;margin-bottom:40px}
-  .brand .dot{width:14px;height:14px;border-radius:4px;background:var(--green)}
-  .brand b{font-weight:800;font-size:17px;letter-spacing:-.01em}
-  .brand span{color:var(--muted);font-size:13px;font-weight:500}
-  h1{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.32}
-  .rule{width:48px;height:4px;background:var(--green);border-radius:2px;margin:18px 0 14px}
-  .lead{color:var(--muted);font-size:15px;margin-bottom:8px}
-  h2{font-size:17px;font-weight:700;margin:38px 0 12px;letter-spacing:-.01em;
-     padding-left:14px;border-left:3px solid var(--green)}
-  p{margin:0 0 12px;font-size:15.5px;color:#D5D8DE}
-  ol,ul{margin:0 0 12px 4px;padding-left:20px}
-  li{margin:0 0 8px;font-size:15.5px;color:#D5D8DE}
-  .steps{counter-reset:s;list-style:none;padding:0;margin:14px 0}
-  .steps li{position:relative;padding:14px 16px 14px 52px;background:var(--surface);
-            border:1px solid var(--border);border-radius:12px;margin-bottom:10px}
-  .steps li::before{counter-increment:s;content:counter(s);
-            position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:8px;
-            background:var(--green);color:#08130C;font-weight:800;font-size:14px;
-            display:flex;align-items:center;justify-content:center}
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;
-         padding:24px;margin:22px 0}
-  .card label{display:block;font-size:13.5px;color:var(--muted);font-weight:600;margin:0 0 7px}
-  .card input{width:100%;background:#1C1E26;border:1px solid var(--border);border-radius:10px;
-         color:var(--text);font-size:15px;padding:13px 14px;font-family:inherit;margin-bottom:16px}
-  .card input:focus{outline:none;border-color:var(--green)}
-  .btn{width:100%;border:none;border-radius:10px;background:var(--green);color:#08130C;
-       font-family:inherit;font-weight:800;font-size:15.5px;padding:15px;cursor:pointer;
-       transition:filter .15s}
-  .btn:hover{filter:brightness(1.08)}
-  .hint{font-size:13px;color:var(--muted);margin-top:12px;text-align:center}
-  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
-  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border)}
-  th{color:var(--muted);font-weight:600;font-size:13px}
-  td{color:#D5D8DE}
-  .tag-del{color:var(--green);font-weight:700}
-  .tag-keep{color:var(--blue);font-weight:700}
-  a{color:var(--blue);text-decoration:none}
-  a:hover{text-decoration:underline}
-  footer{margin-top:52px;padding-top:24px;border-top:1px solid var(--border);
-         color:var(--muted);font-size:13.5px;line-height:1.9}
-  footer .biz{color:#C4C8D0}
-  :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
-  @media (max-width:520px){h1{font-size:24px}.wrap{padding:40px 0 64px}}
+  .wrap { max-width: 680px; }
 </style>
 </head>
 <body>
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="/" aria-label="THE FIELD 홈">
+      <span class="logo-dot"></span>
+      <img src="logo_text.png" alt="THE FIELD" class="logo-img">
+    </a>
+    <a class="nav-back" href="/">← 홈으로</a>
+  </div>
+</nav>
+
 <div class="wrap">
-  <div class="brand"><span class="dot"></span><b>더필드</b><span>THE FIELD</span></div>
+  <header class="page">
+    <span class="eyebrow">Account</span>
+    <h1>계정 및 데이터 삭제 요청</h1>
+    <p class="lead">더필드(THE FIELD) 앱의 계정과 관련 데이터 삭제를 요청하실 수 있습니다.</p>
+  </header>
 
-  <h1>계정 및 데이터 삭제 요청</h1>
-  <div class="rule"></div>
-  <p class="lead">더필드(THE FIELD) 앱의 계정과 관련 데이터 삭제를 요청하실 수 있습니다.</p>
-
+  <main>
   <h2>삭제 요청 방법</h2>
   <ol class="steps">
     <li>아래 입력란에 가입에 사용한 이메일 주소를 입력합니다.</li>
@@ -97,9 +61,10 @@
     </tbody>
   </table>
   <p>삭제 요청은 접수 후 <b>30일 이내</b>에 처리되며, 백업본을 포함한 데이터는 <b>최대 90일 이내</b>에 완전히 삭제됩니다. 다만 「전자상거래법」 등 관련 법령에 따라 보존 의무가 있는 정보는 해당 기간 동안 분리 보관 후 파기합니다. 자세한 보관 기간은 <a href="/privacy">개인정보처리방침</a>을 참고하세요.</p>
+  </main>
 
   <footer>
-    <div class="biz">더필드(THE FIELD)</div>
+    <div class="biz-line">더필드(THE FIELD)</div>
     대표자: 박민서 · 사업자등록번호: 381-25-02327<br>
     문의: <a href="mailto:contact@thefield.ai.kr">contact@thefield.ai.kr</a>
   </footer>
