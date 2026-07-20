@@ -212,6 +212,32 @@
     border-color: var(--ink);
     transform: translateY(-2px);
   }
+  .btn-store {
+    background: var(--ink);
+    color: #fff;
+    padding: 13px 24px;
+  }
+  .btn-store:hover {
+    background: #000;
+    transform: translateY(-2px);
+  }
+  .btn-store svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  .btn-store .btn-store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.25;
+  }
+  .btn-store .btn-store-text small {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    opacity: 0.7;
+  }
   .btn-invert {
     background: var(--paper);
     color: var(--ink);
@@ -777,8 +803,13 @@
         AI가 경기 중에도 경기 후에도 함께 분석합니다.
       </p>
       <div class="hero-cta">
-        <a href="https://forms.gle/r2zn2qhrxPXjtUnGA" target="_blank" rel="noopener" class="btn btn-primary">
-          30일 무료 체험 신청
+        <a href="https://apps.apple.com/kr/app/%EB%8D%94%ED%95%84%EB%93%9C-the-field/id6784915756" target="_blank" rel="noopener" class="btn btn-store">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.72-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.86-.76-1.47.02-2.83.86-3.59 2.17-1.53 2.66-.39 6.59 1.1 8.74.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.87.69 1.19-.02 1.94-1.07 2.66-2.13.84-1.22 1.19-2.4 1.21-2.46-.03-.01-2.32-.89-2.35-3.5zM14.9 5.9c.61-.74 1.02-1.77.91-2.8-.88.04-1.94.59-2.57 1.32-.56.65-1.05 1.7-.92 2.7.98.08 1.98-.5 2.58-1.22z"/></svg>
+          <span class="btn-store-text"><small>App Store</small>iOS 다운로드</span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.thefield.ai.manager" target="_blank" rel="noopener" class="btn btn-store">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.25.26-.4.67-.4 1.2v17c0 .53.15.94.4 1.2l.06.06 9.53-9.53v-.46L3.66 2.24l-.06.06zM16.4 15.5l-3.18-3.18v-.45l3.18-3.18.07.04 3.77 2.14c1.08.61 1.08 1.61 0 2.23l-3.77 2.14-.07.04zM15.6 16.3L12.4 13.1 3.6 21.9c.36.38.94.42 1.6.05l10.4-5.65zM15.6 7.7L5.2 2.05c-.66-.37-1.24-.33-1.6.05l8.8 8.8 3.2-3.2z"/></svg>
+          <span class="btn-store-text"><small>Google Play</small>Android 다운로드</span>
         </a>
         <a href="#features" class="btn btn-ghost">기능 둘러보기</a>
       </div>
