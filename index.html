@@ -616,7 +616,7 @@
     color: var(--paper);
   }
   .price-card.featured::before {
-    content: 'BEST';
+    content: 'NOW';
     position: absolute;
     top: 20px;
     right: 24px;
@@ -789,12 +789,22 @@
     "https://apps.apple.com/kr/app/%EB%8D%94%ED%95%84%EB%93%9C-the-field/id6784915756",
     "https://play.google.com/store/apps/details?id=com.thefield.ai.manager"
   ],
-  "offers": {
-    "@type": "Offer",
-    "price": "45000",
-    "priceCurrency": "KRW",
-    "description": "팀당 월 구독 (Standard). 30일 무료 체험."
-  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW",
+      "validThrough": "2027-06-30",
+      "description": "2027년 6월까지 무료. 기능 제한 없음."
+    },
+    {
+      "@type": "Offer",
+      "price": "500000",
+      "priceCurrency": "KRW",
+      "validFrom": "2027-07-01",
+      "description": "팀당 월 정액. 선수 수가 늘어도 동일."
+    }
+  ],
   "publisher": {
     "@type": "Organization",
     "name": "더필드 THE FIELD",
@@ -825,7 +835,7 @@
 <header class="hero container">
   <div class="hero-main">
     <div class="hero-content">
-      <div class="badge">KU리그 · 고려대학교 야구부 도입</div>
+      <div class="badge">KU리그 · 고려대학교 야구부 파일럿 완료</div>
       <h1>
         기록은 디지털로,<br>
         분석은 <em>AI로</em>
@@ -913,12 +923,13 @@
       <p>흩어진 명단과 일정을 모아 정리하세요. 선수 프로필부터 라인업, 리그 시즌까지 — 야구팀 관리에 필요한 모든 정보가 한 화면에서 시작됩니다.</p>
       <ul class="feature-list">
         <li>선수 프로필 · 포지션 · 소속팀 통합 관리</li>
-        <li>팀 생성 · 로스터 · 라인업 빠른 편집</li>
+        <li>로스터 · 라인업 빠른 편집 · 지난 경기 라인업 복사</li>
+        <li>선수는 계정 없이 명단으로 관리</li>
         <li>리그 설정 · 참가팀 · 시즌 단위 운영</li>
       </ul>
     </div>
     <div class="feature-image">
-      <img src="manage.jpg" alt="THE FIELD 데이터 관리 화면 - 선수, 팀, 리그 카드" loading="lazy">
+      <img src="manage.jpg" alt="THE FIELD 팀 관리 화면 - 운영진, 선수 명단, 전력 분석, 리그 관리" loading="lazy">
     </div>
   </div>
 
@@ -926,16 +937,16 @@
     <div class="feature-text">
       <div class="feature-num">02 · Digital Scorekeeping</div>
       <h3>익숙한 기록지를<br>화면으로 옮겼습니다</h3>
-      <p>오랫동안 써온 종이 기록지를 그대로 옮긴 전자 기록지(디지털 스코어북)입니다. 익숙한 흐름은 살리고, 펜과 종이만 태블릿으로 바뀌었습니다. 17존 스트라이크존, 5가지 구종, 모든 결과 버튼을 한 화면에 — 기록자는 경기에 집중하고, 데이터는 클라우드에 자동으로 쌓입니다.</p>
+      <p>오랫동안 써온 종이 기록지를 그대로 옮긴 전자 기록지(디지털 스코어북)입니다. 익숙한 흐름은 살리고, 펜과 종이만 태블릿으로 바뀌었습니다. 17존 스트라이크존, 6가지 구종, 모든 결과 버튼을 한 화면에 — 기록자는 경기에 집중하고, 데이터는 클라우드에 자동으로 쌓입니다.</p>
       <ul class="feature-list">
         <li>17존 스트라이크존 추적 + 구속 입력</li>
-        <li>폭투 · 포일 · 사구 · 인플레이 · 파울 · 볼 · 스트라이크 통합 입력</li>
+        <li>폭투 · 포일 · 사구 · 견제 · 인플레이 · 파울 · 볼 · 스트라이크 통합 입력</li>
         <li>주루 · 교체도 별도 탭에서 빠르게</li>
         <li>기록 즉시 클라우드 저장 · 재생 가능</li>
       </ul>
     </div>
     <div class="feature-image portrait">
-      <img src="scoring.jpg" alt="THE FIELD 경기 입력 화면 - 투구 위치 히트맵과 결과선택 버튼" loading="lazy">
+      <img src="scoring.jpg" alt="THE FIELD 경기 입력 화면 - 스트라이크존 투구 위치, 구종, 결과 버튼" loading="lazy">
     </div>
   </div>
 
@@ -958,7 +969,7 @@
       </div>
     </div>
     <div class="feature-image">
-      <img src="analytics.jpg" alt="THE FIELD 투수 분석 리포트 - KPI, 히트맵, AI 처방전" loading="lazy">
+      <img src="analytics.jpg" alt="THE FIELD 투수 분석 리포트 - KPI, AI 처방전, 구종별 피안타 차트, 스트라이크존 히트맵" loading="lazy">
     </div>
   </div>
 </section>
@@ -974,18 +985,18 @@
   <div class="steps">
     <div class="step">
       <span class="step-num">STEP 1</span>
-      <h4>가입 &amp; 팀 등록</h4>
-      <p>계정 가입 후 팀 정보와 로스터를 입력.</p>
+      <h4>팀 개설</h4>
+      <p>더필드가 팀을 만들고 초대 코드를 전달합니다.</p>
     </div>
     <div class="step">
       <span class="step-num">STEP 2</span>
-      <h4>라인업 작성</h4>
-      <p>등번호 검색 · 포지션 원터치 · 지난 경기 라인업 복사 지원.</p>
+      <h4>운영진 참가</h4>
+      <p>초대 코드로 감독 · 코치 · 기록원 참가. 선수는 계정 없이 명단만 입력.</p>
     </div>
     <div class="step">
       <span class="step-num">STEP 3</span>
       <h4>경기 중 디지털 기록</h4>
-      <p>태블릿 한 대로 경기 진행. 기록자 한 명이면 충분.</p>
+      <p>태블릿 권장 · 휴대폰도 가능. 기록원 한 명이면 충분.</p>
     </div>
     <div class="step">
       <span class="step-num">STEP 4</span>
@@ -1000,39 +1011,34 @@
 <section id="pricing" class="section container reveal">
   <div class="section-header">
     <span class="eyebrow">Pricing</span>
-    <h2>합리적인<br>팀 단위 요금</h2>
-    <p>학교 · 아마추어팀 기준. 30일 무료 체험 후 결정하세요.</p>
+    <h2>2027년 6월까지<br>무료</h2>
+    <p>팀 단위 정액입니다. 선수 수가 늘어도 금액은 같고, 소속 선수 조회와 리포트 생성이 전부 포함됩니다.</p>
   </div>
   <div class="pricing-grid">
-    <div class="price-card">
-      <div class="price-name">Standard</div>
+    <div class="price-card featured">
+      <div class="price-name">지금 — 2027.06</div>
       <div class="price-amount">
-        <strong>8만원</strong>
-        <span>/월 · 팀당</span>
+        <strong>무료</strong>
       </div>
-      <p class="price-desc">기록과 기본 통계가 필요한 팀.</p>
+      <p class="price-desc">기능 제한 없음.</p>
       <ul class="price-features">
         <li>경기 디지털 기록 무제한</li>
         <li>선수 · 팀 통계 자동 계산</li>
-        <li>기본 분석 리포트</li>
-        <li class="muted">실시간 AI 코칭</li>
-        <li class="muted">AI 처방전 PDF</li>
+        <li>분석 리포트 · PDF 출력</li>
+        <li>이 기간에 쌓은 데이터는 그대로 남음</li>
       </ul>
     </div>
-    <div class="price-card featured">
-      <div class="price-name">Premium</div>
+    <div class="price-card">
+      <div class="price-name">2027.07 —</div>
       <div class="price-amount">
-        <strong>20만원</strong>
+        <strong>50만원</strong>
         <span>/월 · 팀당</span>
       </div>
-      <p class="price-desc">데이터로 운영하는 팀을 위한 풀패키지.</p>
+      <p class="price-desc">팀 단위 정액. 선수 수가 늘어도 동일.</p>
       <ul class="price-features">
-        <li>스탠다드 전체 포함</li>
-        <li>실시간 AI 경기 코칭</li>
-        <li>AI 처방전 · 훈련 방향성</li>
-        <li>PDF 리포트 무제한 출력</li>
-        <li>스트라이크존 히트맵</li>
-        <li>우선 기술 지원</li>
+        <li>소속 선수 조회 · 리포트 생성 전부 포함</li>
+        <li>별도 인원 과금 없음</li>
+        <li>선수 25명 기준 1인당 월 20,000원</li>
       </ul>
     </div>
     <div class="price-card">
