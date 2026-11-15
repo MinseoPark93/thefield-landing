@@ -1,0 +1,270 @@
+<!doctype html>
+<!--
+  명예의 전당까지: 게임 소개 페이지 (정적, 한국어·영어·일본어)
+  올리기: 이 폴더(index.html, og.png, icon.png, media/)를 그대로 올린다. 예: https://thefield.ai.kr/hof/
+  언어: ?lang=ko|en|ja, 없으면 브라우저 언어를 따른다.
+  채널: ?c=mlbpark 처럼 붙이면 스토어 버튼이 ct=landing_mlbpark, utm_source=landing_mlbpark 로 바뀐다 (docs/marketing/links.md).
+  App Store 분석은 pt 와 같이 있어야 ct 를 센다: 아래 PT 값을 App Store Connect 캠페인 링크 생성기의 pt 숫자로 바꾼다.
+  og:url, og:image 는 올린 주소에 맞춰 바꾼다.
+  화면 글자에 하이픈, 줄표를 쓰지 않는다.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>명예의 전당까지</title>
+<meta name="description" content="고교 야구부 1학년부터 은퇴까지, 선수 한 명의 야구 인생을 사는 게임. 4,400원, 광고와 인앱 결제 없이 한 번 사면 끝.">
+<meta property="og:title" content="명예의 전당까지">
+<meta property="og:description" content="고교 야구부 1학년부터 은퇴까지, 선수 한 명의 야구 인생을 사는 게임. 광고 없음, 인앱 결제 없음.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thefield.ai.kr/hof/">
+<meta property="og:image" content="https://thefield.ai.kr/hof/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B0C0E">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+  /* AppColors (lib/ui/app_colors.dart) */
+  :root {
+    --bg: #0B0C0E; --backdrop: #050607; --surface: #15171A; --line: #2A2E33;
+    --ink: #F3F0E8; --muted: #B8BCC3; --faint: #858A93;
+    --accent: #FFB81C; --on-accent: #0B0C0E; --live: #F2484A; --gold: #E7C873;
+    --sans: "Pretendard", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", system-ui, sans-serif;
+    --cond: "Barlow Condensed", var(--sans);
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--backdrop); }
+  body {
+    margin: 0; color: var(--ink); font-family: var(--sans); line-height: 1.6;
+    background: radial-gradient(120% 60% at 50% 0%, #1a1608 0%, var(--bg) 45%, var(--backdrop) 100%);
+    word-break: keep-all; overflow-wrap: anywhere;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  .top { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .langs { display: flex; gap: 4px; }
+  .langs button {
+    background: none; border: 1px solid var(--line); color: var(--muted); font: 600 13px var(--sans);
+    padding: 6px 10px; border-radius: 4px; cursor: pointer;
+  }
+  .langs button[aria-pressed="true"] { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
+
+  .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding: 40px 0 72px; }
+  .eyebrow { font: 700 14px var(--cond); letter-spacing: 0.25em; color: var(--accent); text-transform: uppercase; margin: 0 0 12px; }
+  h1 { font-size: clamp(40px, 7vw, 68px); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 18px; }
+  .lead { font-size: 19px; color: var(--muted); margin: 0 0 24px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
+  .chips li {
+    font-weight: 600; font-size: 14px; padding: 6px 12px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 4px;
+  }
+  .chips li:first-child { color: var(--accent); border-color: var(--accent); font-family: var(--cond); font-size: 16px; letter-spacing: 0.03em; }
+  .stores { display: flex; flex-wrap: wrap; gap: 12px; }
+  .store {
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 16px;
+    padding: 14px 22px; border-radius: 6px; background: var(--accent); color: var(--on-accent); min-width: 200px; justify-content: center;
+  }
+  .store.alt { background: none; color: var(--ink); border: 1.5px solid var(--ink); }
+  .store svg { width: 22px; height: 22px; fill: currentColor; }
+  .store:focus-visible, .langs button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .phone {
+    justify-self: center; width: min(320px, 78vw); aspect-ratio: 9 / 16; border-radius: 28px; overflow: hidden;
+    border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(255, 184, 28, 0.12), 0 10px 30px rgba(0, 0, 0, 0.6);
+    background: var(--surface);
+  }
+  .phone video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(26px, 4vw, 36px); letter-spacing: -0.02em; margin: 0 0 28px; }
+  .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .shot { margin: 0; }
+  .shot img { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); display: block; background: var(--surface); }
+  .shot h3 { font-size: 18px; margin: 16px 0 6px; }
+  .shot p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .promise { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0; padding: 0; list-style: none; }
+  .promise li { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 4px; padding: 20px; }
+  .promise strong { display: block; font: 700 30px var(--cond); color: var(--accent); letter-spacing: 0.02em; }
+  .promise span { color: var(--muted); font-size: 15px; }
+
+  .cta { text-align: center; }
+  .cta .stores { justify-content: center; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--faint); font-size: 14px; }
+  footer p { margin: 0 0 6px; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 16px; }
+    .shots { grid-template-columns: repeat(2, 1fr); }
+    .promise { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    .store { width: 100%; }
+    .shots { gap: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .phone video { display: none; } .phone { background: center / cover url("media/ko/4.png"); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><img src="icon.png" alt=""><span data-t="name">명예의 전당까지</span></div>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="ko">한국어</button>
+      <button type="button" data-lang="en">English</button>
+      <button type="button" data-lang="ja">日本語</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Road to the Hall of Fame</p>
+        <h1 data-t="name">명예의 전당까지</h1>
+        <p class="lead" data-t="lead">고교 야구부 1학년부터 은퇴까지,<br>선수 한 명의 야구 인생을 사는 게임</p>
+        <ul class="chips">
+          <li data-t="price">4,400원</li>
+          <li data-t="noads">광고 없음</li>
+          <li data-t="noiap">인앱 결제 없음</li>
+          <li data-t="offline">오프라인</li>
+        </ul>
+        <div class="stores">
+          <a class="store" data-store="ios" href="https://apps.apple.com/app/id6831142293"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.8 1.2 1.8 2.6 3.1 2.5 1.3 0 1.7-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.2-1.2 3-2.5 1-1.4 1.4-2.8 1.4-2.8 0 0-2.7-1-2.7-4zM14 5.2c.7-.8 1.1-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.2-.6 2.9-1.4z"/></svg><span data-t="ios">App Store에서 받기</span></a>
+          <a class="store alt" data-store="android" href="https://play.google.com/store/apps/details?id=com.thefield.halloffame"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l10-10.2zM17 8.2 5.2 1.4C4.8 1.2 4.4 1.1 4.1 1.2l10.2 10.2zm0 7.6-2.7-2.7-10.2 10.2c.3.1.7 0 1.1-.2zm3.6-4.9-2.5-1.4-3 3 3 3 2.5-1.4c.9-.5.9-1.7 0-2.2z"/></svg><span data-t="android">Google Play에서 받기</span></a>
+        </div>
+      </div>
+      <div class="phone">
+        <video id="video" src="media/ko/video.mp4" poster="media/ko/4.png" autoplay muted loop playsinline preload="metadata" aria-label="게임 영상"></video>
+      </div>
+    </div>
+
+    <section>
+      <h2 data-t="whatTitle">한 선수의 커리어가 한 판</h2>
+      <div class="shots">
+        <figure class="shot"><img src="media/ko/1.png" alt="" width="1080" height="1920" loading="lazy"><h3 data-t="f1t">승부처는 직접 친다</h3><p data-t="f1">볼카운트와 투수 성향을 읽고 노림수를 정한다.<br>존을 눌러 스윙한다.</p></figure>
+        <figure class="shot"><img src="media/ko/2.png" alt="" width="1080" height="1920" loading="lazy"><h3 data-t="f2t">매주 고르는 훈련</h3><p data-t="f2">능력은 스카우트처럼 20~80 등급으로 본다.<br>잠재력은 리포트 문장으로만 알 수 있다.</p></figure>
+        <figure class="shot"><img src="media/ko/3.png" alt="" width="1080" height="1920" loading="lazy"><h3 data-t="f3t">만난 사람이 카드로</h3><p data-t="f3">감독, 동료, 가족, 라이벌이 카드로 모인다.<br>뽑기는 없다.</p></figure>
+        <figure class="shot"><img src="media/ko/4.png" alt="" width="1080" height="1920" loading="lazy"><h3 data-t="f4t">은퇴, 그리고 명예의 전당</h3><p data-t="f4">은퇴 경기와 신문 1면, 영구 결번.<br>아들이 아버지를 이어 다음 커리어를 연다.</p></figure>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-t="promiseTitle">한 번 사면 끝</h2>
+      <ul class="promise">
+        <li><strong>0</strong><span data-t="p1">광고와 인앱 결제.<br>뽑기도, 에너지도, 기다림도 없다.</span></li>
+        <li><strong data-t="p2n">1h</strong><span data-t="p2">한 커리어 40분~1시간.<br>출퇴근길에 한 시즌씩.</span></li>
+        <li><strong>3</strong><span data-t="p3">한국어, 영어, 일본어.<br>인터넷 없이도 할 수 있다.</span></li>
+      </ul>
+    </section>
+
+    <section class="cta">
+      <h2 data-t="ctaTitle">고교 야구부 소년이 레전드가 되기까지</h2>
+      <div class="stores">
+        <a class="store" data-store="ios" href="https://apps.apple.com/app/id6831142293"><span data-t="ios">App Store에서 받기</span></a>
+        <a class="store alt" data-store="android" href="https://play.google.com/store/apps/details?id=com.thefield.halloffame"><span data-t="android">Google Play에서 받기</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-t="maker">야구를 좋아하는 1인 개발자가 만들었습니다.</p>
+    <p data-t="fiction">등장하는 구단, 학교, 대회, 선수 이름은 모두 가상입니다.</p>
+    <p><a href="https://the-field-baseball.notion.site/3f8690d4a86d805daf6ae3035392c8fd" data-t="support">지원</a> · <a href="https://the-field-baseball.notion.site/3f8690d4a86d80eb9631f70a8b19cb38" data-t="privacy">개인정보처리방침</a> · <a href="mailto:contact@thefield.ai.kr">contact@thefield.ai.kr</a></p>
+    <p>© 2026 <span data-t="company">더필드</span></p>
+  </footer>
+</div>
+
+<script>
+  const PT = 'PT'; // App Store Connect > 앱 분석 > 캠페인 링크 생성기의 pt 숫자
+
+  const T = {
+    en: {
+      name: 'Road to the Hall of Fame',
+      lead: 'From a high school freshman to the day he retires:<br>live one player\'s whole life in baseball',
+      price: 'Pay once', noads: 'No ads', noiap: 'No in app purchases', offline: 'Offline',
+      ios: 'Download on the App Store', android: 'Get it on Google Play',
+      whatTitle: 'One career, one run',
+      f1t: 'You play the big moments', f1: 'Read the pitcher and the count, then sit on a pitch.<br>Tap the zone to swing.',
+      f2t: 'Train every week', f2: 'Scout style grades from 20 to 80.<br>Potential shows only in the scouting report.',
+      f3t: 'People become cards', f3: 'Managers, teammates, family and rivals.<br>No gacha.',
+      f4t: 'Retire into the Hall of Fame', f4: 'A farewell game, the front page, a retired number.<br>Then his son picks up where he left off.',
+      promiseTitle: 'Pay once and play',
+      p1: 'Ads and in app purchases.<br>No gacha, no energy, no waiting.',
+      p2n: '1h', p2: 'A career takes 40 minutes to an hour.<br>One season per commute.',
+      p3: 'Korean, English and Japanese.<br>Plays without internet.',
+      ctaTitle: 'From a high school kid to a legend',
+      maker: 'Made by one developer who loves baseball.',
+      fiction: 'All clubs, schools, tournaments and players are fictional.',
+      support: 'Support', privacy: 'Privacy policy', company: 'THE FIELD',
+      video: 'Gameplay video',
+    },
+    ja: {
+      name: '殿堂入りまで',
+      lead: '高校野球部の1年生から引退の日まで、<br>ひとりの選手の野球人生を生きるゲーム',
+      price: '買い切り', noads: '広告なし', noiap: '課金なし', offline: 'オフライン',
+      ios: 'App Storeで入手', android: 'Google Playで入手',
+      whatTitle: 'ひとつのキャリアが一回のプレイ',
+      f1t: '勝負どころは自分で打つ', f1: 'カウントと投手の傾向を読んで狙い球を決める。<br>ゾーンを押してスイングする。',
+      f2t: '毎週選ぶ練習', f2: '能力はスカウトのように20~80の評価で見る。<br>潜在能力はレポートの文章でしか分からない。',
+      f3t: '出会った人がカードに', f3: '監督、仲間、家族、ライバルがカードになる。<br>ガチャはない。',
+      f4t: '引退、そして殿堂へ', f4: '引退試合、新聞の一面、永久欠番。<br>息子が父を継いで次のキャリアへ。',
+      promiseTitle: '買い切り',
+      p1: '広告と課金。<br>ガチャも、スタミナも、待ち時間もない。',
+      p2n: '1h', p2: 'ひとつのキャリアは40分~1時間。<br>通勤中にワンシーズンずつ。',
+      p3: '韓国語、英語、日本語。<br>インターネットなしで遊べる。',
+      ctaTitle: '高校球児からレジェンドへ',
+      maker: '野球が好きなひとりの開発者が作りました。',
+      fiction: '登場する球団、学校、大会、選手の名前はすべて架空です。',
+      support: 'サポート', privacy: 'プライバシーポリシー', company: 'THE FIELD',
+      video: 'ゲーム映像',
+    },
+  };
+
+  // Korean is in the page itself; keep it to switch back.
+  const ko = { video: '게임 영상' };
+  document.querySelectorAll('[data-t]').forEach(el => { ko[el.dataset.t] ??= el.innerHTML; });
+  T.ko = ko;
+
+  const params = new URLSearchParams(location.search);
+  const channel = /^[a-z0-9_]{1,30}$/.test(params.get('c') || '') ? params.get('c') : '';
+  const tag = channel ? 'landing_' + channel : 'landing';
+  document.querySelectorAll('[data-store="ios"]').forEach(a => {
+    a.href = 'https://apps.apple.com/app/id6831142293?pt=' + PT + '&ct=' + tag + '&mt=8';
+  });
+  document.querySelectorAll('[data-store="android"]').forEach(a => {
+    a.href = 'https://play.google.com/store/apps/details?id=com.thefield.halloffame&referrer='
+      + encodeURIComponent('utm_source=' + tag + '&utm_campaign=promo1');
+  });
+
+  function setLang(lang) {
+    const t = T[lang] || T.ko;
+    document.documentElement.lang = lang;
+    document.title = t.name;
+    document.querySelectorAll('[data-t]').forEach(el => { if (t[el.dataset.t] != null) el.innerHTML = t[el.dataset.t]; });
+    document.querySelectorAll('.shot img').forEach((img, i) => { img.src = 'media/' + lang + '/' + (i + 1) + '.png'; });
+    const v = document.getElementById('video');
+    if (!v.src.endsWith('media/' + lang + '/video.mp4')) {
+      v.poster = 'media/' + lang + '/4.png';
+      v.src = 'media/' + lang + '/video.mp4';
+      v.play().catch(() => {});
+    }
+    v.setAttribute('aria-label', t.video);
+    document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  }
+
+  const asked = params.get('lang');
+  const nav = (navigator.language || 'ko').slice(0, 2);
+  setLang(T[asked] ? asked : (T[nav] ? nav : 'ko'));
+  document.querySelectorAll('.langs button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+</script>
+</body>
+</html>
